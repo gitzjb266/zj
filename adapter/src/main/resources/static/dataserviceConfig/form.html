@@ -1,0 +1,121 @@
+<div class="layui-card-body" style="padding-top: 20px;">
+    <form id="tDataserviceConfig-form" lay-filter="tDataserviceConfig-form" class="layui-form model-form">
+        <input name="id" type="hidden"/>
+        <div class="layui-form-item">
+            <label class="layui-form-label ">服务名称</label>
+            <div class="layui-input-block">
+                <select id="name" name="name" autocomplete="off" lay-filter="name">
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label ">服务类型</label>
+            <div class="layui-input-block">
+                <select id="type" name="type" lay-filter="type" autocomplete="off">
+                    <option value="1">阿里云</option>
+                    <option value="2">华为云</option>
+                </select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <button type="button" class="layui-btn" lay-submit lay-filter="tDataserviceConfig-save">保存</button>
+                <button type="button" class="layui-btn layui-btn-primary" id="tDataserviceConfig-cancel">取消</button>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="../layui/layui.js"></script>
+
+<script>
+
+    // layui.config({
+    //     base:'/adapter/layui/js/'
+    // })
+    //
+    // layui.use(['form', 'table', 'util', 'admin', 'laydate', 'layedit'], function () {
+    //     var table = layui.table;
+    //     var layer = layui.layer;
+    //     var admin = layui.admin;
+    //     var form = layui.form;
+    //     var laydate = layui.laydate;
+    //     var $ = layui.jquery;
+    //     var receiveData = admin.getLayerData("#tDataserviceConfig-form")
+    //     const listData = receiveData.tableData
+    //     const serviceNames = receiveData.serviceNames
+    //     const action = receiveData.action
+    //
+    //     // 初始化加载
+    //     $(function () {
+    //         laydate.render({elem: '#tDataserviceConfig-createTime', type: 'date'});
+    //         laydate.render({elem: '#tDataserviceConfig-updateTime', type: 'date'});
+    //     });
+    //
+    //     // 读取传递给弹出层的数据, 赋值到 form 中
+    //     if(action === 'edit') {
+    //         $("input[name='id']").val(receiveData.row.id)
+    //         loadSelectOptions(receiveData.row.serviceName)
+    //         $("#type").val(receiveData.row.type)
+    //         form.render('select')
+    //     } else {
+    //         loadSelectOptions()
+    //     }
+    //
+    //     // 表单提交
+    //     form.on('submit(tDataserviceConfig-save)', function (data) {
+    //         const sufix = action === 'add' ? 'save' : 'update'
+    //         const url = sufix;
+    //         const formData = data.field;
+    //         let flag = false
+    //         if(action === 'add') {
+    //             $.each(listData,(n, item) => {
+    //                 if(item.serviceName === formData.name) {
+    //                     flag = true
+    //                 }
+    //             })
+    //             if(flag) {
+    //                 layer.alert('请勿重复添加！！！',{
+    //                     icon: 5,
+    //                     title: '提示'
+    //                 })
+    //                 return false
+    //             }
+    //         }
+    //         admin.req(url, {
+    //             id: formData.id,
+    //             serviceName: formData.name,
+    //             type: formData.type
+    //         }, function (response) {
+    //             layer.closeAll('loading');
+    //             if (response.code === 0) {
+    //                 admin.success(response.msg);
+    //                 table.reload('tDataserviceConfig-table');
+    //                 layer.closeAll('page');
+    //             } else {
+    //                 admin.error(response.msg);
+    //             }
+    //         }, 'POST');
+    //         return false;
+    //     });
+    //
+    //     // 取消按钮
+    //     $('#tDataserviceConfig-cancel').click(function () {
+    //         layer.closeAll('loading');
+    //         layer.closeAll('page');
+    //     });
+    //
+    //     function loadSelectOptions(name) {
+    //         // $("#name").append(`<option value="">请选择服务名称</option>`)
+    //         for(let key in serviceNames) {
+    //             const option = `<option value="${key}">${serviceNames[key]}</option>`
+    //             $("#name").append(option)
+    //         }
+    //         if(name){
+    //             $("#name").val(name)
+    //             $("#name").attr("disabled","disabled")
+    //         }
+    //         form.render('select')
+    //     }
+    // });
+</script>
+
